@@ -4,7 +4,7 @@ function gameComputer() {
   
   do {
 	var optionPrompt=prompt ("Enter rock, paper or scissors");
-	alert (optionPrompt);
+	//alert (optionPrompt);
 	} while ( !contains (optionList, optionPrompt) )
 	
 	//console.log (optionPrompt);
@@ -33,9 +33,7 @@ function gameComputer() {
 	}
 	
 	
-	alert("computer:"+computer);
 	
-	alert ("selection:"+selection);
 	//rock, 0
 	//paper, 1
 	//scissors 2
