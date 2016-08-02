@@ -1,11 +1,15 @@
-<script type="text/javascript">
+
 function gameComputer() {
-	var optionPrompt=prompt ("Enter Rock, Paper or Scissors");
+  var optionList = ["rock","paper","scissors"];
+  
+  do {
+	var optionPrompt=prompt ("Enter rock, paper or scissors");
 	alert (optionPrompt);
+	} while ( !contains (optionList, optionPrompt) )
 	
 	//console.log (optionPrompt);
 	
-	alert ("*"+optionPrompt+"*");
+	//alert ("*"+optionPrompt+"*");
 	
 	var selection=0;
 	var computer=Math.floor (Math.random()* 3);
@@ -19,29 +23,44 @@ function gameComputer() {
 	{
 	  selection=1;
 	}
-	else if (optionPrompt==="scissor")  
+	else if (optionPrompt==="scissors")  
 	{
 	  selection=2;
 	}
 	else
 	{
-	  alert ("please re-enter.");
+	  alert ("Please re-enter.");
 	}
 	
 	
 	alert("computer:"+computer);
 	
 	alert ("selection:"+selection);
-	if (selection>computer) 
+	//rock, 0
+	//paper, 1
+	//scissors 2
+	if (( selection ===0 && computer ===2) 
+		|| (selection===1 && computer===0) 
+		|| (selection===2 && computer===1) )
 	{
-	 alert ("You win.");
+	 alert ("You win. You have " + optionList[selection] + ", computer has "+ optionList[computer]);
 	}
-	else if (selection<computer)  
+	else if (selection===computer)  
 	{
-	  alert ("You lose.");
+	  alert ("Tie, try again. Both have " + optionList[computer]);
+	  
 	  }
 	else {
-	  alert ("Tie, try again. ");
+	  alert ("You lose. You have " + optionList[selection] + ", computer has "+ optionList[computer]);
 	}
 }
-</script>
+
+function contains(arrayObj, oneObj) {
+    var i = arrayObj.length;
+    while (i--) {
+       if (arrayObj[i] === oneObj) {
+           return true;
+       }
+    }
+    return false;
+}
